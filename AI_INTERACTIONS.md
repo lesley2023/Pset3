@@ -43,3 +43,20 @@
 - **Assistance category:** Checking mathematics and assignment completeness; notation feedback. No empirical implementation or economic argument generation.
 - **Grouping:** No subsequent requests grouped.
 - **After commit:** The Git commit containing this appended entry records the after-interaction state; locate with `git log`.
+
+
+## 2026-11-13 — Q1(a): update typeset proof from revised handwriting
+
+- **Student prompt:** “@TP I updated the handwritten notes [handwritten_notes](<Problem Sets/Pset3/handwritten_notes/>) for Q1a, can you help me to update the proof for Q1 a accordingly”.
+- **Purpose:** Update the existing LaTeX/PDF to reflect the student's revised handwritten derivation.
+- **Before commit:** `56a26ad8d6a16d59354a56985ee9fb5b3d738180`. This snapshot records the student's revised PDF and its move from `Q1a.pdf` to `handwritten_notes/Q1a.pdf` before substantive transcription.
+- **Files inspected:** `handwritten_notes/Q1a.pdf` (entire one-page document and enlarged detail), `pset3_solution.tex`, compiled `pset3_solution.pdf` (visual inspection); Git status. TP/PDF skill and course policy retained from prior context.
+- **Assistance:** Transcribed the student's new Hessian/positive-definiteness argument establishing the stationary point as a global maximum. Updated the risk-free condition to the explicit timing in the revised handwriting. Defined the covariance matrix earlier in the proof; retained existing derivation steps. Polished grammar and compacted the heading/display spacing to keep the proof on one page.
+- **Ambiguities/errors identified:** Handwriting defined Sigma inverse as Var, despite using Sigma inverse as the inverse covariance matrix later. The positive-definiteness sentence quantified over all d, omitting d != 0. Asked the student to resolve each issue before editing the proof.
+- **Student decisions (verbatim replies):** “Yes, define Σ = Var; Σ⁻¹ is its inverse.” and “Yes, specify d ≠ 0.” Implemented these two explicit decisions; no mathematical ambiguity resolved silently.
+- **Substantive suggestions:** Identified the covariance-definition inconsistency and explained the zero-vector exception. The Hessian argument itself already existed in the student's revised notes. No additional derivation or economic reasoning generated.
+- **Files directly modified:** `pset3_solution.tex`, `pset3_solution.pdf`; appended this entry to `AI_INTERACTIONS.md`. Handwritten source unchanged by AI.
+- **Validation:** pdflatex compiled successfully; rendered the resulting one-page PDF with PyMuPDF and inspected it visually. No clipping or overlapping content observed.
+- **Assistance category:** Formatting/translation of revised student mathematics, with diagnostic notation feedback and student-confirmed corrections.
+- **Grouping:** Student clarification replies and layout/compilation iterations are part of this same request; no separate subsequent task grouped.
+- **After commit:** The Git commit containing this entry and the revised source/PDF records the after-interaction state; locate with `git log`.

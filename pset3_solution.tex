@@ -11,10 +11,14 @@
 \author{}
 \date{}
 \begin{document}
-\maketitle
-\vspace{-2em}
+\setlength{\abovedisplayskip}{6pt}
+\setlength{\belowdisplayskip}{6pt}
+\begin{center}
+{\Large Problem Set 3}\\[3pt]
+BUSFIN 8200: Asset Pricing Foundations
+\end{center}
 \section*{Question 1(a)}
-The portfolio choice problem is
+Define $\Sigma_{xR,t}=\Vt[\xr]$. The portfolio choice problem is
 \begin{equation*}
 \boldsymbol{\varpi}_{p,t}
 =\argmax_{\wt}\left\{\Et[R_{p,t+1}]
@@ -57,6 +61,15 @@ Taking the derivative with respect to $\wt$ yields
 \gamma_t\Vt[\xr]\wt
 &=\Et[\xr]-\gamma_t\Ct(R_{o,t+1},\xr).
 \end{align*}
+Let $F(\wt)$ denote the objective. Its Hessian is
+$H_t=-\gamma_t\Sigma_{xR,t}$. If $\Sigma_{xR,t}$ is positive definite,
+then for every $\mathbf d\ne\mathbf 0$,
+$\mathbf d'\Sigma_{xR,t}\mathbf d>0$. Since $\gamma_t>0$, it follows that
+\[
+\mathbf d'H_t\mathbf d=-\gamma_t\mathbf d'\Sigma_{xR,t}\mathbf d<0.
+\]
+Thus the objective is strictly concave, and the stationary point
+$\wt^*$ satisfying $\nabla F(\wt^*)=0$ is the global maximum.
 Therefore,
 \begin{align*}
 \boldsymbol{\varpi}_{p,t}
@@ -64,10 +77,9 @@ Therefore,
 -\bigl(\gamma_t\Vt[\xr]\bigr)^{-1}
 \gamma_t\Ct(R_{o,t+1},\xr)\\
 &=\frac{1}{\gamma_t}\Sigma_{xR,t}^{-1}\Et[\xr]
--\Sigma_{xR,t}^{-1}\Ct(R_{o,t+1},\xr),
-\qquad \Sigma_{xR,t}=\Vt[\xr].
+-\Sigma_{xR,t}^{-1}\Ct(R_{o,t+1},\xr).
 \end{align*}
-If $R_o=R_f$, then $\Ct(R_f,\mathbf{xR})=0$, so
+If a risk-free asset exists with $R_{o,t+1}=R_{f,t}$, then $\Ct(R_{f,t},\xr)=0$, so
 \[
 \boxed{\boldsymbol{\varpi}_{p,t}
 =\frac{1}{\gamma_t}\Sigma_{xR,t}^{-1}\Et[\xr].}
