@@ -1,0 +1,75 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb}
+\newcommand{\Et}{\mathbb{E}_t}
+\newcommand{\Vt}{\operatorname{Var}_t}
+\newcommand{\Ct}{\operatorname{Cov}_t}
+\newcommand{\wt}{\boldsymbol{\varpi}_t}
+\newcommand{\xr}{\mathbf{xR}_{t+1}}
+\DeclareMathOperator*{\argmax}{arg\,max}
+\title{Problem Set 3\\\large BUSFIN 8200: Asset Pricing Foundations}
+\author{}
+\date{}
+\begin{document}
+\maketitle
+\vspace{-2em}
+\section*{Question 1(a)}
+The portfolio choice problem is
+\begin{equation*}
+\boldsymbol{\varpi}_{p,t}
+=\argmax_{\wt}\left\{\Et[R_{p,t+1}]
+-\frac{\gamma_t}{2}\Vt[R_{p,t+1}]\right\},
+\end{equation*}
+subject to
+\[
+R_{p,t+1}=R_{o,t+1}+\wt'\xr,
+\qquad \mathbf{xR}_t=\mathbf{R}_t-R_{o,t}.
+\]
+Substituting the portfolio return into the objective gives
+\begin{align*}
+\boldsymbol{\varpi}_{p,t}
+&=\argmax_{\wt}\Bigl\{
+\Et[R_{o,t+1}+\wt'\xr]
+-\frac{\gamma_t}{2}\Vt[R_{o,t+1}+\wt'\xr]\Bigr\}\\
+&=\argmax_{\wt}\Bigl\{
+\Et[R_{o,t+1}]+\Et[\wt'\xr]\\
+&\hspace{3em}-\frac{\gamma_t}{2}\bigl(
+\Vt[R_{o,t+1}]+\Vt[\wt'\xr]
++2\Ct(R_{o,t+1},\wt'\xr)\bigr)\Bigr\}.
+\end{align*}
+Since $\Et[R_{o,t+1}]$ and $\Vt[R_{o,t+1}]$ do not depend on $\wt$,
+the maximization can be written as
+\begin{align*}
+\boldsymbol{\varpi}_{p,t}
+&=\argmax_{\wt}\Bigl\{\Et[\wt'\xr]
+-\frac{\gamma_t}{2}\Vt[\wt'\xr]
+-\gamma_t\Ct(R_{o,t+1},\wt'\xr)\Bigr\}\\
+&=\argmax_{\wt}\Bigl\{\wt'\Et[\xr]
+-\frac{\gamma_t}{2}\wt'\Vt[\xr]\wt
+-\gamma_t\wt'\Ct(R_{o,t+1},\xr)\Bigr\}.
+\end{align*}
+Taking the derivative with respect to $\wt$ yields
+\begin{align*}
+\Et[\xr]-\frac{\gamma_t}{2}\,2\Vt[\xr]\wt
+-\gamma_t\Ct(R_{o,t+1},\xr)&=0,\\
+\Et[\xr]-\gamma_t\Vt[\xr]\wt
+-\gamma_t\Ct(R_{o,t+1},\xr)&=0,\\
+\gamma_t\Vt[\xr]\wt
+&=\Et[\xr]-\gamma_t\Ct(R_{o,t+1},\xr).
+\end{align*}
+Therefore,
+\begin{align*}
+\boldsymbol{\varpi}_{p,t}
+&=\gamma_t^{-1}\Vt[\xr]^{-1}\Et[\xr]
+-\bigl(\gamma_t\Vt[\xr]\bigr)^{-1}
+\gamma_t\Ct(R_{o,t+1},\xr)\\
+&=\frac{1}{\gamma_t}\Sigma_{xR,t}^{-1}\Et[\xr]
+-\Sigma_{xR,t}^{-1}\Ct(R_{o,t+1},\xr),
+\qquad \Sigma_{xR,t}=\Vt[\xr].
+\end{align*}
+If $R_o=R_f$, then $\Ct(R_f,\mathbf{xR})=0$, so
+\[
+\boxed{\boldsymbol{\varpi}_{p,t}
+=\frac{1}{\gamma_t}\Sigma_{xR,t}^{-1}\Et[\xr].}
+\]
+\end{document}
