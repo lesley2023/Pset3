@@ -84,4 +84,140 @@ If a risk-free asset exists with $R_{o,t+1}=R_{f,t}$, then $\Ct(R_{f,t},\xr)=0$,
 \boxed{\boldsymbol{\varpi}_{p,t}
 =\frac{1}{\gamma_t}\Sigma_{xR,t}^{-1}\Et[\xr].}
 \]
+\clearpage
+\section*{Question 1(c)}
+The maximum Sharpe ratio portfolio solves
+\[
+\boldsymbol{\varpi}_{\max,t}
+=\argmax_{\wt}\left\{\operatorname{SR}_t[\wt'\xr]
+=\frac{\Et[\wt'\xr]}{\operatorname{Vol}_t[\wt'\xr]}\right\}.
+\]
+We can write
+\[
+\operatorname{SR}_t[\wt'\xr]
+=\frac{\Et[\wt'\xr]}{\operatorname{Vol}_t[\wt'\xr]}
+=\frac{\wt'\Et[\xr]}{\operatorname{Vol}_t[\wt'\xr]}.
+\]
+Taking derivatives with respect to $\wt$ gives the following expression:
+% Transcribed literally: the handwritten denominator uses Var, and the
+% covariance-matrix factor in the numerator has no following weight vector.
+\[
+\frac{\Et[\xr]\operatorname{Vol}_t[\wt'\xr]
+-\wt'\Et[\xr]\,2\Sigma_{xR,t}\,
+ \dfrac{1}{2\operatorname{Vol}_t[\wt'\xr]}}
+{\operatorname{Var}(\wt'\Sigma_{xR,t}\wt)}.
+\]
+The notes then give
+\[
+\frac{\Et[\xr]\operatorname{Vol}_t[\wt'\xr]}
+{\operatorname{Var}(\wt'\Sigma_{xR,t}\wt)}
+=
+\frac{\boldsymbol{\varpi}_{\max,t}'\Et[\xr]\Sigma_{xR,t}}
+{\operatorname{Var}(\wt'\Sigma_{xR,t}\wt)
+ \operatorname{Vol}_t[\wt'\xr]},
+\]
+followed by
+% Primes and the variance argument below are preserved from the handwriting.
+\[
+\boldsymbol{\varpi}_{\max,t}'
+=\frac{\Vt[\wt' xR_{\max}]}{\Et[xR_{\max}]}
+\Sigma_{xR,t}^{-1}\Et[\mathbf{xR}].
+\]
+Define
+\[
+c=\frac{\Vt[\wt' xR_{\max}]}{\Et[xR_{\max}]},
+\qquad \mathbf z=\Sigma_{xR,t}^{-1}\Et[\mathbf{xR}].
+\]
+Then $\boldsymbol{\varpi}_{\max,t}'=c\mathbf z$. Imposing the normalization,
+\begin{align*}
+\mathbf1'\boldsymbol{\varpi}_{\max,t}=1
+&\quad\Longrightarrow\quad
+1=\mathbf1'(c\mathbf z)=c\mathbf1'\mathbf z,\\
+c&=\frac1{\mathbf1'\mathbf z},\qquad
+\boldsymbol{\varpi}_{\max,t}=c\mathbf z
+=\frac{\mathbf z}{\mathbf1'\mathbf z}.
+\end{align*}
+Thus,
+\[
+\boxed{\boldsymbol{\varpi}_{\max,t}
+=\frac{\Sigma_{xR,t}^{-1}\Et[\mathbf{xR}]}
+{\mathbf1'\Sigma_{xR,t}^{-1}\Et[\mathbf{xR}]}.}
+\]
+The normalization implies the full allocation vector
+$\mathbf W_{\max,t}=(0,\boldsymbol{\varpi}_{\max,t}')'$.
+Consequently, the portfolio returns are
+\[
+R_{\max,t+1}=\mathbf W_{\max,t}'
+\begin{pmatrix}R_{o,t+1}\\\mathbf R_{t+1}\end{pmatrix},
+\qquad xR_{\max,t+1}=\boldsymbol{\varpi}_{\max,t}'\xr.
+\]
+\clearpage
+\subsection*{Expected excess return and variance}
+The expected excess return is
+\[
+\Et[xR_{\max,t+1}]
+=\Et\left[\left(
+\frac{\Sigma_{xR,t}^{-1}\Et[\mathbf{xR}]}
+{\mathbf1'\Sigma_{xR,t}^{-1}\Et[\mathbf{xR}]}
+\right)'\xr\right].
+\]
+Since $\mathbf1'\Sigma_{xR,t}^{-1}\Et[\mathbf{xR}]$ is a scalar and
+$\Sigma_{xR,t}$ is symmetric,
+\[
+\left(\frac{\Sigma_{xR,t}^{-1}\Et[\mathbf{xR}]}
+{\mathbf1'\Sigma_{xR,t}^{-1}\Et[\mathbf{xR}]}\right)'
+=\frac{\Et[\mathbf{xR}]'\Sigma_{xR,t}^{-1}}
+{\mathbf1'\Sigma_{xR,t}^{-1}\Et[\mathbf{xR}]}.
+\]
+Therefore,
+\begin{align*}
+\Et[xR_{\max,t+1}]
+&=\Et\left[\frac{\Et[\mathbf{xR}]'\Sigma_{xR,t}^{-1}}
+{\mathbf1'\Sigma_{xR,t}^{-1}\Et[\mathbf{xR}]}\xr\right]\\
+&=\frac{\Et[\mathbf{xR}]'\Sigma_{xR,t}^{-1}\Et[\mathbf{xR}]}
+{\mathbf1'\Sigma_{xR,t}^{-1}\Et[\mathbf{xR}]}.
+\end{align*}
+The conditional variance is
+\begin{align*}
+\Vt[xR_{\max}]
+&=\Vt[\boldsymbol{\varpi}_{\max,t}'\mathbf{xR}]
+=\boldsymbol{\varpi}_{\max,t}'\Vt[\mathbf{xR}]
+\boldsymbol{\varpi}_{\max,t}\\
+&=\boldsymbol{\varpi}_{\max,t}'\Sigma_{xR,t}
+\boldsymbol{\varpi}_{\max,t}\\
+&=\frac{\Et[\mathbf{xR}]'\Sigma_{xR,t}^{-1}}
+{\mathbf1'\Sigma_{xR,t}^{-1}\Et[\mathbf{xR}]}
+\Sigma_{xR,t}
+\frac{\Sigma_{xR,t}^{-1}\Et[\mathbf{xR}]}
+{\mathbf1'\Sigma_{xR,t}^{-1}\Et[\mathbf{xR}]}\\
+&=\frac{\Et[\mathbf{xR}]'\Sigma_{xR,t}^{-1}\Et[\mathbf{xR}]}
+{\bigl(\mathbf1'\Sigma_{xR,t}^{-1}\Et[\mathbf{xR}]\bigr)^2}.
+\end{align*}
+\subsection*{Risk aversion}
+Assume $R_{o,t+1}=R_{f,t}$. From Question 1(a),
+\[
+\wt^*=\frac1{\gamma_t}\Sigma_{xR,t}^{-1}\Et[\mathbf{xR}].
+\]
+Setting $\boldsymbol{\varpi}_{\max,t}=\wt^*$ gives
+\[
+\frac{\Sigma_{xR,t}^{-1}\Et[\mathbf{xR}]}
+{\mathbf1'\Sigma_{xR,t}^{-1}\Et[\mathbf{xR}]}
+=\frac1{\gamma_t}\Sigma_{xR,t}^{-1}\Et[\mathbf{xR}],
+\qquad
+\gamma_t=\mathbf1'\Sigma_{xR,t}^{-1}\Et[\mathbf{xR}].
+\]
+Using the mean and variance above,
+\begin{align*}
+\frac{\Et[xR_{\max}]}{\Vt[xR_{\max}]}
+&=\frac{\Et[\mathbf{xR}]'\Sigma_{xR,t}^{-1}\Et[\mathbf{xR}]}
+{\mathbf1'\Sigma_{xR,t}^{-1}\Et[\mathbf{xR}]}
+\frac{\bigl(\mathbf1'\Sigma_{xR,t}^{-1}\Et[\mathbf{xR}]\bigr)^2}
+{\Et[\mathbf{xR}]'\Sigma_{xR,t}^{-1}\Et[\mathbf{xR}]}\\
+&=\mathbf1'\Sigma_{xR,t}^{-1}\Et[\mathbf{xR}].
+\end{align*}
+Thus, assuming $R_{o,t+1}=R_{f,t}$,
+\[
+\boxed{\gamma_t=\frac{\Et[xR_{\max}]}{\Vt[xR_{\max}]}.}
+\]
+
 \end{document}

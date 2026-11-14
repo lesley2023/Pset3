@@ -76,3 +76,20 @@
 - **Assistance category:** Repository administration and GitHub publication.
 - **Grouping:** Authentication checks, repository creation, push, and verification belong to this same administrative request.
 - **After commit:** The commit containing this entry records the after-interaction state; identify with `git log`.
+
+
+## 2026-11-14 — Q1(c): OCR handwritten derivation into solution
+
+- **Student prompt:** “@TP I add my handwritten notes for Q1c in the [Asset Pricing Pset3.pdf](<Problem Sets/Pset3/handwritten_notes/Asset Pricing Pset3.pdf>) can you help me to OCR it and insert in the solution.tex?”
+- **Purpose:** Transcribe the student's Q1(c) derivation into the existing solution source and regenerate its PDF.
+- **Before commit:** `d8108b945ed07da9263a42fc8f4d5155a9ac8780`. Includes the newly provided handwritten PDF before transcription.
+- **Existing student work:** The new three-page handwritten document contains Q1(a) on page 1 and Q1(c) on pages 2–3, including Sharpe-ratio differentiation, normalization, mean and variance calculations, and the risk-aversion comparison. The tracked solution previously contained Q1(a) only.
+- **Assistance:** Visually transcribed pages 2–3 (including an enlarged rendering of page 2) into a new Question 1(c) section in `pset3_solution.tex`, the existing solution source (no separate solution.tex existed). Retained the student's algebra and sequence, organized it with headings and page breaks, standardized vector typography, and polished connecting grammar. Preserved the handwritten gamma_t label in the final risk-aversion expression. Did not add Q1(b) or modify Q1(a). Recompiled the PDF and visually reviewed all three output pages.
+- **Files inspected:** `SKILL.md`, `handwritten_notes/Asset Pricing Pset3.pdf` (all pages visually), `pset3_solution.tex`, `pset3_solution.pdf` (all output pages), Git status/tracked file listing. Previously read PDF skill and policy retained from session context.
+- **Files directly modified:** `pset3_solution.tex`, `pset3_solution.pdf`, appended this entry to `AI_INTERACTIONS.md`. No handwritten source changes.
+- **Errors/ambiguities identified:** The handwritten derivative uses Var(w prime Sigma w) as a denominator and omits a weight factor after Sigma in the numerator; later lines have row/column transpose inconsistencies and Var(w prime xR_max) despite xR_max being scalar. Preserved these literal expressions, with LaTeX source comments identifying the literal transcription and commentary flagging the issues. Did not silently repair or supply a replacement derivation. A mathematical correctness review was not requested or performed in full.
+- **Substantive mathematical/economic/empirical suggestions or decisions:** Flagged apparent derivative/dimension inconsistencies for student review; no mathematical correction implemented. Layout and typography decisions only.
+- **Validation:** pdflatex succeeded with no overfull-box warnings. Rendered using PyMuPDF and visually checked all three pages for clipping, overlaps, and legibility.
+- **Assistance category:** OCR/translation and LaTeX formatting, with limited diagnostic flags.
+- **Grouping:** No subsequent user requests grouped; compilation and layout checks belong to this request.
+- **After commit:** The commit containing this appended entry and revised source/PDF records the after-interaction state; locate with `git log`.
