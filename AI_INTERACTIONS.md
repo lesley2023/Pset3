@@ -139,3 +139,19 @@
 - **Assistance category:** Checking mathematics and diagnostic explanation.
 - **Grouping:** No subsequent requests grouped.
 - **After commit:** The commit containing this entry records the after-interaction state; locate with `git log`.
+
+
+## 2026-11-14 — Q1(c): student-confirmed Var/Vol OCR correction
+
+- **Student prompt:** “here, i wrote Var instead of Vol, it is the OCR issue” followed by the two affected first-order-condition lines.
+- **Purpose:** Correct two transcription errors identified by the student.
+- **Before commit:** `07477c1bdaa7f50cd1148a391b95ae387df04a12` (empty snapshot; working tree clean).
+- **Assistance:** Replaced Vol with Var on the left sides of the two specified intermediate FOC lines, as explicitly confirmed by the student. Removed the obsolete source comment that described these as literal Vol transcriptions. Recompiled the four-page PDF and visually checked the changed page; no overfull-box warnings or layout defects observed.
+- **Correction to earlier record:** The preceding OCR and review entries attributed these two Vol expressions to the handwriting and described a missing square as a student algebra error. The student now confirms the handwritten expressions were Var; the error was AI transcription, not the student's derivation. Prior log entries are preserved unchanged; this entry corrects that attribution.
+- **Files inspected:** Relevant lines of `pset3_solution.tex`; changed page 2 of compiled `pset3_solution.pdf` visually. Student clarification is authoritative for the corrected symbols.
+- **Files directly modified:** `pset3_solution.tex`, `pset3_solution.pdf`, appended this entry to `AI_INTERACTIONS.md`.
+- **Errors/omissions/ambiguities:** Var/Vol issue resolved. The separately flagged variance argument in the definition of c was not changed or reinterpreted; no other mathematical revisions made.
+- **Substantive mathematical/economic/empirical suggestions:** None beyond identifying that the prior concern arose from transcription. This implements the student's explicit notation clarification.
+- **Assistance category:** OCR correction and LaTeX formatting.
+- **Grouping:** Recorded as a separate traceable correction; no prior entries rewritten or combined.
+- **After commit:** The commit containing this entry and corrected source/PDF records the after-interaction state; locate with `git log`.
