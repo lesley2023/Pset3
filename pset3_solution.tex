@@ -98,37 +98,54 @@ We can write
 =\frac{\Et[\wt'\xr]}{\operatorname{Vol}_t[\wt'\xr]}
 =\frac{\wt'\Et[\xr]}{\operatorname{Vol}_t[\wt'\xr]}.
 \]
-Taking derivatives with respect to $\wt$ gives the following expression:
-% Transcribed literally: the handwritten denominator uses Var, and the
-% covariance-matrix factor in the numerator has no following weight vector.
+Taking the derivative of portfolio volatility gives
+\begin{align*}
+\frac{\partial\operatorname{Vol}_t[\wt'\xr]}{\partial\wt}
+&=\frac{\partial\bigl(\Vt[\wt'\xr]\bigr)^{1/2}}{\partial\wt}
+=\frac{\partial(\wt'\Sigma_{xR,t}\wt)^{1/2}}{\partial\wt}\\
+&=\frac12(\wt'\Sigma_{xR,t}\wt)^{-1/2}\,2\Sigma_{xR,t}\wt\\
+&=\Sigma_{xR,t}\wt(\wt'\Sigma_{xR,t}\wt)^{-1/2}.
+\end{align*}
+Taking the derivative of the Sharpe ratio with respect to $\wt$ gives
 \[
 \frac{\Et[\xr]\operatorname{Vol}_t[\wt'\xr]
--\wt'\Et[\xr]\,2\Sigma_{xR,t}\,
- \dfrac{1}{2\operatorname{Vol}_t[\wt'\xr]}}
-{\operatorname{Var}(\wt'\Sigma_{xR,t}\wt)}.
+-\wt'\Et[\xr]\Sigma_{xR,t}\wt
+(\wt'\Sigma_{xR,t}\wt)^{-1/2}}
+{\wt'\Sigma_{xR,t}\wt}.
 \]
+Setting $\partial\operatorname{SR}_t/\partial\wt=0$, the notes give
+\begin{align*}
+\frac{\Et[\xr]\operatorname{Vol}_t[\wt'\xr]}
+{\wt'\Sigma_{xR,t}\wt}
+&=\frac{\wt'\Et[\xr]\Sigma_{xR,t}\wt}
+{(\wt'\Sigma_{xR,t}\wt)\operatorname{Vol}_t[\wt'\xr]},\\
+\Et[\xr]\operatorname{Vol}_t[\wt'\xr]
+&=\frac{\wt'\Et[\xr]\Sigma_{xR,t}\wt}
+{\operatorname{Vol}_t[\wt'\xr]},\\
+% Literal transcription: these next two handwritten lines retain Vol,
+% whereas the following proportionality uses Var. Not silently corrected.
+\Et[\xr]\operatorname{Vol}_t[\wt'\xr]
+&=\wt'\Et[\xr]\Sigma_{xR,t}\wt,\\
+\Et[\xr]\operatorname{Vol}_t[\wt'\xr]
+&=\Et[xR_{\max}]\Sigma_{xR,t}\wt.
+\end{align*}
 The notes then give
 \[
-\frac{\Et[\xr]\operatorname{Vol}_t[\wt'\xr]}
-{\operatorname{Var}(\wt'\Sigma_{xR,t}\wt)}
-=
-\frac{\boldsymbol{\varpi}_{\max,t}'\Et[\xr]\Sigma_{xR,t}}
-{\operatorname{Var}(\wt'\Sigma_{xR,t}\wt)
- \operatorname{Vol}_t[\wt'\xr]},
-\]
-followed by
-% Primes and the variance argument below are preserved from the handwriting.
-\[
-\boldsymbol{\varpi}_{\max,t}'
-=\frac{\Vt[\wt' xR_{\max}]}{\Et[xR_{\max}]}
-\Sigma_{xR,t}^{-1}\Et[\mathbf{xR}].
+\wt=\frac{\Vt[\wt'\xr]}{\Et[xR_{\max}]}
+\Sigma_{xR,t}^{-1}\Et[\xr],
+\qquad
+\boldsymbol{\varpi}_{\max,t}
+=\frac{\Vt[\boldsymbol{\varpi}_{\max,t}'\xr]}{\Et[xR_{\max}]}
+\Sigma_{xR,t}^{-1}\Et[\xr].
 \]
 Define
+% Literal transcription: the handwritten definition of c still uses
+% Var(w prime xR_max), although xR_max is a scalar.
 \[
 c=\frac{\Vt[\wt' xR_{\max}]}{\Et[xR_{\max}]},
 \qquad \mathbf z=\Sigma_{xR,t}^{-1}\Et[\mathbf{xR}].
 \]
-Then $\boldsymbol{\varpi}_{\max,t}'=c\mathbf z$. Imposing the normalization,
+Then $\boldsymbol{\varpi}_{\max,t}=c\mathbf z$. Imposing the normalization,
 \begin{align*}
 \mathbf1'\boldsymbol{\varpi}_{\max,t}=1
 &\quad\Longrightarrow\quad
@@ -152,6 +169,39 @@ R_{\max,t+1}=\mathbf W_{\max,t}'
 \qquad xR_{\max,t+1}=\boldsymbol{\varpi}_{\max,t}'\xr.
 \]
 \clearpage
+\subsection*{Global maximum}
+By the Cauchy--Schwarz inequality,
+\[
+(\mathbf a'\mathbf b)^2\le(\mathbf a'\mathbf a)(\mathbf b'\mathbf b).
+\]
+Let
+\[
+\mathbf a=\Sigma_{xR,t}^{1/2}\wt,
+\qquad \mathbf b=\Sigma_{xR,t}^{-1/2}\Et[\mathbf{xR}].
+\]
+Then
+\begin{align*}
+(\wt'\Et[\mathbf{xR}])^2
+&\le(\wt'\Sigma_{xR,t}\wt)
+\bigl(\Et[\mathbf{xR}]'\Sigma_{xR,t}^{-1}\Et[\mathbf{xR}]\bigr),\\
+\frac{(\wt'\Et[\mathbf{xR}])^2}{\wt'\Sigma_{xR,t}\wt}
+&\le\Et[\mathbf{xR}]'\Sigma_{xR,t}^{-1}\Et[\mathbf{xR}],\\
+\operatorname{SR}_t^2(\wt)
+&\le\Et[\mathbf{xR}]'\Sigma_{xR,t}^{-1}\Et[\mathbf{xR}],\\
+\operatorname{SR}_t(\wt)
+&\le\sqrt{\Et[\mathbf{xR}]'\Sigma_{xR,t}^{-1}\Et[\mathbf{xR}]}.
+\end{align*}
+The upper bound is attained when
+\[
+\Sigma_{xR,t}^{1/2}\wt
+=k\Sigma_{xR,t}^{-1/2}\Et[\mathbf{xR}],
+\qquad
+\wt=k\Sigma_{xR,t}^{-1}\Et[\mathbf{xR}],\quad k>0.
+\]
+Hence the portfolio derived from the first-order condition achieves the global
+maximum Sharpe ratio, provided that $\Sigma_{xR,t}$ is positive definite and
+the normalization admits $k>0$.
+
 \subsection*{Expected excess return and variance}
 The expected excess return is
 \[
