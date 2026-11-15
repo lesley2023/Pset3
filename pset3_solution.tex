@@ -326,6 +326,17 @@ Since the off-diagonal covariances are zero,
 \]
 \clearpage
 \subsection*{Optimal allocation across the market and hedging strategies}
+
+Assume $\sigma^2_{m,t}>0$ and $\sigma^2_{\epsilon,j,t}>0$ for every $j$,
+so that $\Sigma_t$ is positive definite and invertible. Also assume
+\[
+\mathbf1'\Sigma_t^{-1}\boldsymbol\mu_t
+=\frac{\mu_{m,t}}{\sigma^2_{m,t}}
++\sum_{j=1}^J\frac{\alpha_{j,t}}{\sigma^2_{\epsilon,j,t}}>0,
+\]
+so that normalization preserves the positive scaling of the
+Sharpe-ratio-maximizing direction.
+
 From Question 1(c),
 \[
 \boldsymbol\omega_{\max,t}
@@ -546,7 +557,8 @@ Thus $A\mu_{m,t}+B\alpha_{H,t}
 -\frac{\mu_{m,t}^2}{\sigma^2_{m,t}}
 =\frac{\alpha_{H,t}^2}{\sigma^2_{\epsilon,H,t}}.
 \end{align*}
-Consequently,
+Since the question assumes $\alpha_{H,t}>0$ and
+$\sigma_{\epsilon,H,t}>0$, taking the positive square root gives
 \[
 \boxed{\frac{\alpha_{H,t}}{\sigma_{\epsilon,H,t}}
 =\sqrt{\operatorname{SR}_t[xR_{\max}]^2-\operatorname{SR}_t[xR_m]^2},}

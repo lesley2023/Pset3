@@ -218,3 +218,19 @@
 - **Assistance category:** Checking mathematics, checking economic reasoning, completeness review.
 - **Grouping:** No subsequent requests grouped.
 - **After commit:** The commit containing this entry records the after-interaction state; locate with `git log`.
+
+
+## 2026-11-15 — Q1(d): insert student-selected assumptions
+
+- **Student prompt:** “can you add these two conditions into my proof?” with an annotation selecting the prior review's positive-alpha square-root condition and positive-variance/positive-normalization conditions.
+- **Purpose:** Insert the exact mathematical qualifications explicitly selected and authorized by the student.
+- **Before commit:** `b8987b306f2085c755fd277974e1f9c800df83d0` (empty snapshot; working tree clean).
+- **Assistance:** Added positive market and individual hedge variances and a positive all-strategy normalization denominator before applying the normalized maximum-Sharpe weights. Added the question's alpha_H,t>0 assumption and positive hedge volatility immediately before the final square-root identity. Included brief explanations of invertibility, positive scaling, and choice of the positive root. These conditions were suggested in the prior review and explicitly selected by the student in this request; no additional derivation or economic argument rewritten.
+- **Files inspected:** Relevant portions of `pset3_solution.tex`, compiled `pset3_solution.pdf` changed pages 6 and 10 visually, build log.
+- **Files directly modified:** `pset3_solution.tex`, `pset3_solution.pdf`, appended this entry to `AI_INTERACTIONS.md`.
+- **Errors/omissions/ambiguities:** Implemented both selected qualifications. Prior SDF-discussion feedback remains outside this editing request and was not implemented.
+- **Substantive mathematical/economic/empirical suggestions or decisions:** Implemented the student's explicit choice to add the two previously identified conditions, including associated positivity of variances. No new substantive decisions made autonomously.
+- **Validation:** pdflatex succeeded, no overfull-box warnings; the eleven-page PDF's changed pages were rendered using PyMuPDF and visually checked for clipping and overlaps.
+- **Assistance category:** Student-directed insertion of specified mathematical assumptions and LaTeX formatting.
+- **Grouping:** Separate traceable follow-up; earlier interaction entries unchanged.
+- **After commit:** The commit containing this entry and edited source/PDF records the after-interaction state; locate with `git log`.
