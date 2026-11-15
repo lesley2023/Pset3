@@ -553,4 +553,22 @@ Consequently,
 \]
 where $R_{\max,t+1}=(1-\pi_{H,t})R_{m,t+1}+\pi_{H,t}R^H_{t+1}$.
 
+
+Equation (1.14) implies that the maximum squared Sharpe ratio attainable by combining the market portfolio with a market-neutral hedging portfolio is
+
+\[
+SR[xR_{\max}]^2
+=
+SR[xR_m]^2
++
+\frac{\alpha_H^2}{\sigma_{\epsilon,H}^2}.
+\]
+
+Since the market Sharpe ratio is fixed, maximizing the overall Sharpe ratio is equivalent to first choosing the hedging weights \(\omega_j^H\) to maximize \(\alpha_H/\sigma_{\epsilon,H}\), and then choosing the allocation \(\pi_H\) between the market and the optimal hedging portfolio. If \(\alpha_H\neq0\), the hedging portfolio provides an additional investment opportunity that increases the attainable maximum Sharpe ratio. Thus, the market portfolio alone is not mean-variance efficient.
+
+This result has an important implication for SDF theory. For traded excess returns, the pricing condition is \(E[MxR_j]=0\). A linear SDF can be represented as an affine function of the maximum Sharpe ratio portfolio. If the market portfolio were sufficient to span the relevant pricing component of the SDF, a market-only linear specification \(M=a-b_mxR_m\) would imply zero expected excess returns for all market-neutral strategies, because such strategies are uncorrelated with the market and therefore with the SDF. Hence, the pricing condition would require \(\alpha_j=0\).
+
+However, the existence of market-neutral strategies with nonzero alpha implies that the market-only linear SDF is insufficient. Since the maximum Sharpe ratio portfolio may include both the market and additional hedging strategies, the corresponding linear SDF can be expressed as \(M=a-b_mxR_m-\boldsymbol b_F'\boldsymbol F\), where \(\boldsymbol F\) denotes additional traded return factors.
+
+Therefore, reduced-form multifactor models are motivated by the need to capture investment opportunities and priced return variation not explained by the market factor alone. Including additional factors can improve the model's ability to price the cross-section of asset returns, although the portfolio-based motivation does not, by itself, provide a structural economic explanation for the factor risk premia.
 \end{document}
