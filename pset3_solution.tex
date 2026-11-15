@@ -267,4 +267,290 @@ Thus, assuming $R_{o,t+1}=R_{f,t}$,
 \boxed{\gamma_t=\frac{\Et[xR_{\max}]}{\Vt[xR_{\max}]}.}
 \]
 
+\clearpage
+\section*{Question 1(d)}
+\subsection*{Market hedging strategies}
+The market index model and hedging strategy are
+\begin{align*}
+xR_{j,t+1}&=\alpha_{j,t}+\beta_{j,t}xR_{m,t+1}+\epsilon_{j,t+1},\\
+xR^H_{j,t+1}&=xR_{j,t+1}-\beta_{j,t}xR_{m,t+1}.
+\end{align*}
+Substituting the first equation into the second gives
+\begin{align*}
+xR^H_{j,t+1}
+&=\alpha_{j,t}+\beta_{j,t}xR_{m,t+1}
+ +\epsilon_{j,t+1}-\beta_{j,t}xR_{m,t+1}\\
+&=\alpha_{j,t}+\epsilon_{j,t+1}.
+\end{align*}
+Thus,
+\[
+\Et[xR^H_{j,t+1}]=\alpha_{j,t}+\Et[\epsilon_{j,t+1}].
+\]
+Given $\Et[xR^H_{j,t+1}]=\alpha_{j,t}$, we have
+$\Et[\epsilon_{j,t+1}]=0$. Also,
+\begin{align*}
+\Vt[xR^H_{j,t+1}]
+&=\Vt[\alpha_{j,t}+\epsilon_{j,t+1}]
+=\Vt[\epsilon_{j,t+1}]=\sigma^2_{\epsilon,j,t},\\
+\Ct(xR_m,xR^H_j)
+&=\Ct(xR_m,\alpha_{j,t}+\epsilon_{j,t+1})
+=\Ct(xR_m,\epsilon_{j,t+1})=0,\\
+\Ct(xR^H_j,xR^H_k)
+&=\Ct(\alpha_{j,t}+\epsilon_{j,t+1},
+\alpha_{k,t}+\epsilon_{k,t+1})\\
+&=\Ct(\epsilon_{j,t+1},\epsilon_{k,t+1})=0,
+\qquad j\ne k.
+\end{align*}
+Define the new vector and its conditional mean:
+\[
+\mathbf X_{t+1}=
+\begin{pmatrix}xR_{m,t+1}\\xR^H_{1,t+1}\\\vdots\\xR^H_{J,t+1}\end{pmatrix},
+\qquad
+\boldsymbol\mu_t=\Et[\mathbf X_{t+1}]
+=\begin{pmatrix}\mu_{m,t}\\\alpha_{1,t}\\\vdots\\\alpha_{J,t}\end{pmatrix}.
+\]
+Since the off-diagonal covariances are zero,
+\[
+\Sigma_t=\begin{pmatrix}
+\sigma^2_{m,t}&0&\cdots&0\\
+0&\sigma^2_{\epsilon,1,t}&\cdots&0\\
+\vdots&\vdots&\ddots&\vdots\\
+0&0&\cdots&\sigma^2_{\epsilon,J,t}
+\end{pmatrix},\qquad
+\Sigma_t^{-1}=\begin{pmatrix}
+1/\sigma^2_{m,t}&0&\cdots&0\\
+0&1/\sigma^2_{\epsilon,1,t}&\cdots&0\\
+\vdots&\vdots&\ddots&\vdots\\
+0&0&\cdots&1/\sigma^2_{\epsilon,J,t}
+\end{pmatrix}.
+\]
+\clearpage
+\subsection*{Optimal allocation across the market and hedging strategies}
+From Question 1(c),
+\[
+\boldsymbol\omega_{\max,t}
+=\frac{\Sigma_t^{-1}\boldsymbol\mu_t}
+{\mathbf1'\Sigma_t^{-1}\boldsymbol\mu_t}.
+\]
+Here,
+\[
+\Sigma_t^{-1}\boldsymbol\mu_t
+=\begin{pmatrix}
+\mu_{m,t}/\sigma^2_{m,t}\\
+\alpha_{1,t}/\sigma^2_{\epsilon,1,t}\\
+\vdots\\\alpha_{J,t}/\sigma^2_{\epsilon,J,t}
+\end{pmatrix},\qquad
+\mathbf1'\Sigma_t^{-1}\boldsymbol\mu_t
+=\frac{\mu_{m,t}}{\sigma^2_{m,t}}
++\sum_{k=1}^J\frac{\alpha_{k,t}}{\sigma^2_{\epsilon,k,t}}.
+\]
+Writing $\boldsymbol\omega_{\max,t}
+=(\omega_{m,t},\omega_{1,t},\ldots,\omega_{J,t})'$, we obtain
+\begin{align*}
+xR_{\max,t+1}
+&=\boldsymbol\omega_{\max,t}'\mathbf X_{t+1}\\
+&=\omega_{m,t}xR_{m,t+1}
++\sum_{j=1}^J\omega_{j,t}xR^H_{j,t+1}.
+\end{align*}
+Since $xR_{m,t+1}=R_{m,t+1}-R_{o,t+1}$ and
+$xR^H_{j,t+1}=R^H_{j,t+1}-R_{o,t+1}$,
+\begin{align*}
+xR_{\max,t+1}
+&=\omega_{m,t}(R_{m,t+1}-R_{o,t+1})
++\sum_{j=1}^J\omega_{j,t}(R^H_{j,t+1}-R_{o,t+1})\\
+&=\omega_{m,t}R_{m,t+1}+\sum_{j=1}^J\omega_{j,t}R^H_{j,t+1}
+-\left(\omega_{m,t}+\sum_{j=1}^J\omega_{j,t}\right)R_{o,t+1}.
+\end{align*}
+The normalization gives
+\[
+\mathbf1'\boldsymbol\omega_{\max,t}
+=\frac{\mathbf1'\Sigma_t^{-1}\boldsymbol\mu_t}
+{\mathbf1'\Sigma_t^{-1}\boldsymbol\mu_t}=1,
+\qquad \omega_{m,t}+\sum_{j=1}^J\omega_{j,t}=1.
+\]
+Therefore,
+\begin{align*}
+xR_{\max,t+1}
+&=\omega_{m,t}R_{m,t+1}+\sum_{j=1}^J\omega_{j,t}R^H_{j,t+1}-R_{o,t+1},\\
+R_{\max,t+1}
+&=\omega_{m,t}R_{m,t+1}+\sum_{j=1}^J\omega_{j,t}R^H_{j,t+1},
+\end{align*}
+where
+\[
+\boxed{\omega_{m,t}=
+\frac{\mu_{m,t}/\sigma^2_{m,t}}
+{\mu_{m,t}/\sigma^2_{m,t}+\sum_{k=1}^J\alpha_{k,t}/\sigma^2_{\epsilon,k,t}},
+\qquad
+\omega_{j,t}=
+\frac{\alpha_{j,t}/\sigma^2_{\epsilon,j,t}}
+{\mu_{m,t}/\sigma^2_{m,t}+\sum_{k=1}^J\alpha_{k,t}/\sigma^2_{\epsilon,k,t}}.}
+\]
+\clearpage
+\subsection*{A single hedging portfolio}
+For the single hedging portfolio,
+\[
+xR^H_{t+1}=\sum_{j=1}^J\omega^H_{j,t}xR^H_{j,t+1}.
+\]
+Its conditional mean is
+\begin{align*}
+\Et[xR^H]
+&=\Et\left[\sum_{j=1}^J\omega^H_{j,t}xR^H_{j,t+1}\right]
+=\sum_{j=1}^J\omega^H_{j,t}\Et[xR^H_{j,t+1}],\\
+\alpha_{H,t}&=\sum_{j=1}^J\omega^H_{j,t}\alpha_{j,t}.
+\end{align*}
+Its conditional variance is
+\begin{align*}
+\Vt[xR^H]
+&=\sum_{j=1}^J(\omega^H_{j,t})^2\Vt[xR^H_{j,t+1}]\\
+&\quad+2\sum_{j<k}\omega^H_{j,t}\omega^H_{k,t}
+\Ct(xR^H_{j,t+1},xR^H_{k,t+1}).
+\end{align*}
+Since $xR^H_{j,t+1}=\alpha_{j,t}+\epsilon_{j,t+1}$, for $j\ne k$,
+\begin{align*}
+\Ct(xR^H_{j,t+1},xR^H_{k,t+1})
+&=\Ct(\alpha_{j,t}+\epsilon_{j,t+1},\alpha_{k,t}+\epsilon_{k,t+1})\\
+&=\Ct(\epsilon_{j,t+1},\epsilon_{k,t+1})=0.
+\end{align*}
+Thus,
+\[
+\Vt[xR^H]=\sum_{j=1}^J(\omega^H_{j,t})^2\sigma^2_{\epsilon,j,t}.
+\]
+\clearpage
+\subsection*{Self-note: variance of a weighted sum}
+For $z=\sum_{j=1}^J a_jX_j$,
+\begin{align*}
+\operatorname{Var}(z)
+&=\mathbb E[(z-\mathbb E[z])^2]\\
+&=\mathbb E\left[\left(\sum_j a_jX_j-\mathbb E\left[\sum_j a_jX_j\right]\right)^2\right]\\
+&=\mathbb E\left[\left(\sum_j a_j(X_j-\mathbb E[X_j])\right)^2\right].
+\end{align*}
+Using $(\sum_j b_j)^2=\sum_j\sum_k b_jb_k$ and
+$\operatorname{Cov}(X_j,X_k)=\mathbb E[(X_j-\mathbb E[X_j])(X_k-\mathbb E[X_k])]$,
+\begin{align*}
+\operatorname{Var}(z)
+&=\mathbb E\left[\sum_j\sum_k a_ja_k
+(X_j-\mathbb E[X_j])(X_k-\mathbb E[X_k])\right]\\
+&=\sum_j\sum_k a_ja_k\operatorname{Cov}(X_j,X_k)\\
+&=\sum_j a_j^2\operatorname{Var}(X_j)
++2\sum_{j<k}a_ja_k\operatorname{Cov}(X_j,X_k).
+\end{align*}
+The last step uses covariance symmetry and separates $j=k$ from $j\ne k$.
+\clearpage
+\subsection*{Combining the market with the single hedging portfolio}
+Write
+\[
+R_{\max,t+1}=(1-\pi_{H,t})R_{m,t+1}+\pi_{H,t}R^H_{t+1},
+\qquad
+\mathbf X_{t+1}=\begin{pmatrix}xR_{m,t+1}\\xR^H_{t+1}\end{pmatrix},
+\qquad
+\boldsymbol\mu_t=\begin{pmatrix}\mu_{m,t}\\\alpha_{H,t}\end{pmatrix}.
+\]
+Since $xR^H_{j,t+1}=\alpha_{j,t}+\epsilon_{j,t+1}$ and
+$\Ct(xR_{m,t+1},\epsilon_{j,t+1})=0$,
+\begin{align*}
+\Ct(xR_{m,t+1},xR^H_{j,t+1})
+&=\Ct(xR_{m,t+1},\alpha_{j,t}+\epsilon_{j,t+1})\\
+&=\Ct(xR_{m,t+1},\alpha_{j,t})
++\Ct(xR_{m,t+1},\epsilon_{j,t+1})=0.
+\end{align*}
+It follows that
+\begin{align*}
+\Ct(xR_{m,t+1},xR^H_{t+1})
+&=\Ct\left(xR_{m,t+1},\sum_{j=1}^J\omega^H_{j,t}xR^H_{j,t+1}\right)\\
+&=\sum_{j=1}^J\omega^H_{j,t}\Ct(xR_{m,t+1},xR^H_{j,t+1})=0.
+\end{align*}
+Therefore,
+\[
+\Sigma_t=\begin{pmatrix}\sigma^2_{m,t}&0\\0&\sigma^2_{\epsilon,H,t}\end{pmatrix},
+\qquad
+\Sigma_t^{-1}=\begin{pmatrix}1/\sigma^2_{m,t}&0\\0&1/\sigma^2_{\epsilon,H,t}\end{pmatrix}.
+\]
+Using Question 1(c),
+\begin{align*}
+\Sigma_t^{-1}\boldsymbol\mu_t
+&=\begin{pmatrix}\mu_{m,t}/\sigma^2_{m,t}\\\alpha_{H,t}/\sigma^2_{\epsilon,H,t}\end{pmatrix},\\
+\mathbf1'\Sigma_t^{-1}\boldsymbol\mu_t
+&=\mu_{m,t}/\sigma^2_{m,t}+\alpha_{H,t}/\sigma^2_{\epsilon,H,t},\\
+\boldsymbol\varpi_{\max,t}
+&=\frac{\Sigma_t^{-1}\boldsymbol\mu_t}{\mathbf1'\Sigma_t^{-1}\boldsymbol\mu_t}
+=\frac{\begin{pmatrix}\mu_{m,t}/\sigma^2_{m,t}\\\alpha_{H,t}/\sigma^2_{\epsilon,H,t}\end{pmatrix}}
+{\mu_{m,t}/\sigma^2_{m,t}+\alpha_{H,t}/\sigma^2_{\epsilon,H,t}}
+=\begin{pmatrix}1-\pi_{H,t}\\\pi_{H,t}\end{pmatrix}.
+\end{align*}
+Thus,
+\[
+\pi_{H,t}=\frac{\alpha_{H,t}/\sigma^2_{\epsilon,H,t}}
+{\mu_{m,t}/\sigma^2_{m,t}+\alpha_{H,t}/\sigma^2_{\epsilon,H,t}}.
+\]
+Since $xR_{\max,t+1}=(1-\pi_{H,t})xR_{m,t+1}+\pi_{H,t}xR^H_{t+1}$,
+\begin{align*}
+\Et[xR_{\max,t+1}]&=(1-\pi_{H,t})\mu_{m,t}+\pi_{H,t}\alpha_{H,t},\\
+\Vt[xR_{\max}]&=(1-\pi_{H,t})^2\sigma^2_{m,t}
++\pi_{H,t}^2\sigma^2_{\epsilon,H,t}.
+\end{align*}
+\clearpage
+\subsection*{Sharpe-ratio improvement}
+The squared Sharpe ratios are
+\begin{align*}
+\operatorname{SR}_t[xR_{\max}]^2
+&=\frac{\Et[xR_{\max}]^2}{\Vt[xR_{\max}]}
+=\frac{[(1-\pi_{H,t})\mu_{m,t}+\pi_{H,t}\alpha_{H,t}]^2}
+{(1-\pi_{H,t})^2\sigma^2_{m,t}+\pi_{H,t}^2\sigma^2_{\epsilon,H,t}},\\
+\operatorname{SR}_t[xR_m]^2&=\frac{\mu_{m,t}^2}{\sigma^2_{m,t}}.
+\end{align*}
+% Literal transcription of the initial comparison in the handwritten notes;
+% the final comparison below uses the opposite subtraction order.
+Initially comparing them as in the notes gives
+\[
+\operatorname{SR}_t[xR_m]^2-\operatorname{SR}_t[xR_{\max}]^2
+=\frac{\mu_{m,t}^2}{\sigma^2_{m,t}}
+-\frac{[(1-\pi_{H,t})\mu_{m,t}+\pi_{H,t}\alpha_{H,t}]^2}
+{(1-\pi_{H,t})^2\sigma^2_{m,t}+\pi_{H,t}^2\sigma^2_{\epsilon,H,t}}.
+\]
+Define $A=\mu_{m,t}/\sigma^2_{m,t}$ and
+$B=\alpha_{H,t}/\sigma^2_{\epsilon,H,t}$. Then
+\[
+\pi_{H,t}=\frac{B}{A+B},\qquad 1-\pi_{H,t}=\frac{A}{A+B}.
+\]
+Substituting these weights,
+\begin{align*}
+\operatorname{SR}_t[xR_{\max}]^2
+&=\frac{\left[\dfrac{A}{A+B}\mu_{m,t}
++\dfrac{B}{A+B}\alpha_{H,t}\right]^2}
+{\left(\dfrac{A}{A+B}\right)^2\sigma^2_{m,t}
++\left(\dfrac{B}{A+B}\right)^2\sigma^2_{\epsilon,H,t}}\\
+&=\frac{[A\mu_{m,t}+B\alpha_{H,t}]^2}
+{A^2\sigma^2_{m,t}+B^2\sigma^2_{\epsilon,H,t}}.
+\end{align*}
+Moreover,
+\begin{align*}
+A\mu_{m,t}+B\alpha_{H,t}
+&=\frac{\mu_{m,t}^2}{\sigma^2_{m,t}}
++\frac{\alpha_{H,t}^2}{\sigma^2_{\epsilon,H,t}},\\
+A^2\sigma^2_{m,t}+B^2\sigma^2_{\epsilon,H,t}
+&=\left(\frac{\mu_{m,t}}{\sigma^2_{m,t}}\right)^2\sigma^2_{m,t}
++\left(\frac{\alpha_{H,t}}{\sigma^2_{\epsilon,H,t}}\right)^2\sigma^2_{\epsilon,H,t}\\
+&=\frac{\mu_{m,t}^2}{\sigma^2_{m,t}}
++\frac{\alpha_{H,t}^2}{\sigma^2_{\epsilon,H,t}}.
+\end{align*}
+Thus $A\mu_{m,t}+B\alpha_{H,t}
+=A^2\sigma^2_{m,t}+B^2\sigma^2_{\epsilon,H,t}$, and
+\begin{align*}
+\operatorname{SR}_t[xR_{\max}]^2
+&=\frac{(A^2\sigma^2_{m,t}+B^2\sigma^2_{\epsilon,H,t})^2}
+{A^2\sigma^2_{m,t}+B^2\sigma^2_{\epsilon,H,t}}\\
+&=A^2\sigma^2_{m,t}+B^2\sigma^2_{\epsilon,H,t},\\
+\operatorname{SR}_t[xR_{\max}]^2-\operatorname{SR}_t[xR_m]^2
+&=\frac{\mu_{m,t}^2}{\sigma^2_{m,t}}
++\frac{\alpha_{H,t}^2}{\sigma^2_{\epsilon,H,t}}
+-\frac{\mu_{m,t}^2}{\sigma^2_{m,t}}
+=\frac{\alpha_{H,t}^2}{\sigma^2_{\epsilon,H,t}}.
+\end{align*}
+Consequently,
+\[
+\boxed{\frac{\alpha_{H,t}}{\sigma_{\epsilon,H,t}}
+=\sqrt{\operatorname{SR}_t[xR_{\max}]^2-\operatorname{SR}_t[xR_m]^2},}
+\]
+where $R_{\max,t+1}=(1-\pi_{H,t})R_{m,t+1}+\pi_{H,t}R^H_{t+1}$.
+
 \end{document}

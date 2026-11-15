@@ -186,3 +186,19 @@
 - **Assistance category:** Checking mathematics and notation/exposition feedback.
 - **Grouping:** No subsequent requests grouped.
 - **After commit:** The commit containing this entry records the after-interaction state; locate with `git log`.
+
+
+## 2026-11-15 — Q1(d): OCR handwritten answer into solution
+
+- **Student prompt:** “@TP I wrote my answer for Q1d in @Problem Sets/Pset3/Asset Pricing Pset3.pdf, OCR it and insert the updated solution into solution.tex”. An earlier interrupted prompt requested the same work without the explicit source path; no tool work occurred on that aborted prompt.
+- **Purpose:** Transcribe the student's existing Q1(d) mathematics into the solution source and compile its PDF.
+- **Before commit:** `5a5fa265a2e7c634aa70664e2f97aafe2aa819c7`. This snapshot records the student-provided root-level `Asset Pricing Pset3.pdf` and the already-missing `Problem Set 3.pdf`. The agent did not delete the assignment PDF; its absence was present in the initial Git status, and its former version remains in Git history.
+- **Files inspected:** `SKILL.md`; `Asset Pricing Pset3.pdf` pages 4–8 visually, first at overview scale and then enlarged; existing `pset3_solution.tex`; newly compiled `pset3_solution.pdf` all Q1(d) pages 5–10 visually; build log and Git status. Previously read PDF skill and course policy retained from conversation context.
+- **Assistance:** Transcribed the market-index model, hedging returns and their moments/covariances, diagonal covariance/inverse matrices, normalized optimal weights, conversion to gross returns, aggregation into one hedging portfolio, the boxed variance self-note, the two-asset allocation and hedge weight, and the squared-Sharpe-ratio calculation using A and B. Inserted Q1(d) after existing sections in `pset3_solution.tex` (no separate solution.tex exists). Used headings, page breaks, vector typography, consistent time subscripts, and polished connecting grammar. Included the self-note under an explicit label. Retained the mathematical sequence and the initial reverse-order Sharpe difference as a valid comparison rather than silently dropping it; later final difference uses the requested order. Fixed a LaTeX transcription typo in an expectation command during visual verification.
+- **Files directly modified:** `pset3_solution.tex`, `pset3_solution.pdf`, appended this entry to `AI_INTERACTIONS.md`. Input handwritten PDF unchanged by AI. Earlier solution sections unchanged.
+- **Errors/omissions/ambiguities:** No unresolved handwriting ambiguity required a substantive student decision. This was OCR/formatting, not a full mathematical correctness review. The student's final square-root step and its assumptions were transcribed rather than expanded into new reasoning.
+- **Substantive mathematical/economic/empirical suggestions or decisions:** None. All mathematical arguments and variance self-note already existed in the handwritten source. Matrix display, labels, grouping, and consistent notation are formatting choices only.
+- **Validation:** pdflatex compiled successfully to ten pages; no overfull-box warnings. Rendered all new pages using PyMuPDF, inspected the output, and re-rendered the adjusted self-note pages after fixing the expectation typo and moving the self-note onto its own page. No clipping or overlaps observed.
+- **Assistance category:** OCR/translation and LaTeX formatting.
+- **Grouping:** No subsequent user requests grouped; compilation and visual/layout iterations are part of this original request.
+- **After commit:** The Git commit containing this entry and the revised source/PDF records the after-interaction state; locate with `git log`.
