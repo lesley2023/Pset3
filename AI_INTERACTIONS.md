@@ -296,3 +296,18 @@
 - **Assistance category:** Checking mathematical notation and dimensions.
 - **Grouping:** No subsequent requests grouped.
 - **After commit:** The commit containing this entry records the after-interaction state; locate with `git log`.
+
+
+## 2026-11-17 — Q1(b): verify revised row/column convention
+
+- **Student prompt:** “@TP I updated the Q1b, is it working this time?”
+- **Purpose:** Verify the latest handwritten covariance notation revisions.
+- **Before commit:** `585c6c9cf99253f62665064ae88d1e4023e31b30`, recording the updated handwritten PDF before review.
+- **Files inspected:** `handwritten_notes/Asset Pricing Pset3.pdf` complete Q1(b) pages 9–10 visually at enlarged resolution; Git status. Existing source/assignment context retained from prior reviews.
+- **Assistance:** Confirmed the revised gray definition is again a row vector, making Cov_t(xR_j,vector xR) times market weights a valid scalar product. Confirmed vector-first Cov_t(vector xR,R_o) is used in the subsequent vector rearrangements, making these dimensions consistent. Identified one residual notation occurrence: the very first displayed equation copied from (1.2) still writes scalar-first Cov_t(R_o,vector xR) without a transpose. Recommended matching its argument order to the revised column covariance used immediately below. Scalar-scalar covariance argument order elsewhere is harmless. Confirmed no new substantive derivation error identified and the risky-baseline qualification remains appropriate.
+- **Errors/omissions/ambiguities:** Core orientation issue resolved; first-line carryover needs the same notation update for complete consistency. The existing LaTeX is still the earlier transcription and was not synchronized by this checking-only request.
+- **Substantive suggestions:** One local covariance notation correction only; no replacement proof or independent mathematical decision implemented.
+- **Files directly modified:** Appended this entry to `AI_INTERACTIONS.md` only; solution source/PDF and handwritten notes unchanged by AI.
+- **Assistance category:** Checking mathematical notation and dimensions.
+- **Grouping:** No subsequent requests grouped.
+- **After commit:** The commit containing this entry records the after-interaction state; locate with `git log`.
