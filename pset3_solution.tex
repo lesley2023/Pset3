@@ -85,6 +85,133 @@ If a risk-free asset exists with $R_{o,t+1}=R_{f,t}$, then $\Ct(R_{f,t},\xr)=0$,
 =\frac{1}{\gamma_t}\Sigma_{xR,t}^{-1}\Et[\xr].}
 \]
 \clearpage
+\section*{Question 1(b)}
+From Equation (1.2),
+\[
+\boldsymbol\varpi_{\gamma,t}
+=\frac1{\gamma_t}\Sigma_{xR,t}^{-1}\Et[\mathbf{xR}]
+-\Sigma_{xR,t}^{-1}\Ct(R_o,\mathbf{xR}).
+\]
+Multiplying both sides by $\Sigma_{xR,t}$ gives
+\begin{align*}
+\Sigma_{xR,t}\boldsymbol\varpi_{\gamma,t}
+&=\frac1{\gamma_t}\Sigma_{xR,t}\Sigma_{xR,t}^{-1}\Et[\mathbf{xR}]
+-\Sigma_{xR,t}\Sigma_{xR,t}^{-1}\Ct(R_o,\mathbf{xR})\\
+&=\frac1{\gamma_t}\Et[\mathbf{xR}]-\Ct(R_o,\mathbf{xR}).
+\end{align*}
+Therefore,
+\[
+\Et[\mathbf{xR}]=\gamma_t\bigl(
+\Sigma_{xR,t}\boldsymbol\varpi_{\gamma,t}+\Ct(R_o,\mathbf{xR})\bigr).
+\]
+Since market clearing implies
+$\boldsymbol\varpi_{\gamma,t}=\boldsymbol\varpi_{m,t}$,
+\[
+\Et[\mathbf{xR}]=\gamma_t\bigl(
+\Sigma_{xR,t}\boldsymbol\varpi_{m,t}+\Ct(R_o,\mathbf{xR})\bigr).
+\]
+For the $j$th element,
+\[
+\Et[xR_j]=\gamma_t\bigl[
+\Ct(xR_j,\mathbf{xR})\boldsymbol\varpi_{m,t}+\Ct(R_o,xR_j)\bigr].
+\]
+Since $R_{w,t+1}=R_{o,t+1}+\boldsymbol\varpi_{m,t}'\xr$,
+\begin{align*}
+\Et[xR_j]
+&=\gamma_t\bigl[\Ct(xR_j,\mathbf{xR})\boldsymbol\varpi_{m,t}
++\Ct(R_o,xR_j)\bigr]\\
+&=\gamma_t\Ct(xR_j,R_{w,t+1}).
+\end{align*}
+Thus,
+\[
+\boxed{\Et[xR_j]=\gamma_t\Ct(R_w,xR_j),\qquad j=1,\ldots,J.}
+\]
+\subsection*{Notes on the matrix and covariance expressions}
+The conditional mean and market weights are column vectors:
+\[
+\Et[\mathbf{xR}]=\begin{pmatrix}\Et[xR_1]\\\Et[xR_2]\\\vdots\\\Et[xR_J]\end{pmatrix},
+\qquad
+\boldsymbol\varpi_{m,t}=\begin{pmatrix}\varpi_{m,1,t}\\\varpi_{m,2,t}\\\vdots\\\varpi_{m,J,t}\end{pmatrix}.
+\]
+The covariance matrix is
+\[
+\Sigma_{xR,t}=\begin{pmatrix}
+\Vt[xR_1]&\Ct(xR_1,xR_2)&\cdots&\Ct(xR_1,xR_J)\\
+\Ct(xR_2,xR_1)&\Vt[xR_2]&\cdots&\Ct(xR_2,xR_J)\\
+\vdots&\vdots&\ddots&\vdots\\
+\Ct(xR_J,xR_1)&\cdots&\cdots&\Vt[xR_J]
+\end{pmatrix}.
+\]
+\clearpage
+For example, its second row gives
+\begin{align*}
+[\Sigma_{xR,t}\boldsymbol\varpi_{m,t}]_2
+&=\Ct(xR_2,xR_1)\varpi_{m,1,t}
++\Vt[xR_2]\varpi_{m,2,t}\\
+&\quad+\cdots+\Ct(xR_2,xR_J)\varpi_{m,J,t}\\
+&=\Ct(xR_2,\mathbf{xR})\boldsymbol\varpi_{m,t}.
+\end{align*}
+Here $\mathbf{xR}$ has dimension $J\times1$, while
+\[
+\Ct(xR_j,\mathbf{xR})=
+\begin{pmatrix}\Ct(xR_j,xR_1)&\Ct(xR_j,xR_2)&\cdots&\Ct(xR_j,xR_J)\end{pmatrix}
+\]
+is a $1\times J$ row vector.
+The covariance identity $\operatorname{Cov}(\mathbf X,\mathbf a'\mathbf Y)
+=\operatorname{Cov}(\mathbf X,\mathbf Y)\mathbf a$ gives
+\[
+\Ct(\mathbf{xR},\boldsymbol\varpi_{m,t}'\mathbf{xR})
+=\Sigma_{xR,t}\boldsymbol\varpi_{m,t}.
+\]
+The portfolio return inside the covariance is scalar; the resulting vector
+of covariances is a column vector. In particular,
+\begin{align*}
+\Ct(\mathbf{xR},R_w)
+&=\Ct(\mathbf{xR},R_o+\boldsymbol\varpi_{m,t}'\mathbf{xR})\\
+&=\Ct(\mathbf{xR},R_o)
++\Ct(\mathbf{xR},\boldsymbol\varpi_{m,t}'\mathbf{xR})\\
+&=\Ct(\mathbf{xR},R_o)
++\Ct(\mathbf{xR},\mathbf{xR})\boldsymbol\varpi_{m,t}\\
+&=\Ct(\mathbf{xR},R_o)+\Sigma_{xR,t}\boldsymbol\varpi_{m,t}.
+\end{align*}
+\subsection*{The beta representation}
+Since $\Et[xR_j]=\gamma_t\Ct(R_w,xR_j)$ for every $j$, in vector form
+\[
+\Et[\mathbf{xR}]=\gamma_t\Ct(\mathbf{xR},R_w).
+\]
+Premultiplying by $\boldsymbol\varpi_{m,t}'$,
+\begin{align*}
+\boldsymbol\varpi_{m,t}'\Et[\mathbf{xR}]
+&=\gamma_t\boldsymbol\varpi_{m,t}'\Ct(\mathbf{xR},R_w),\\
+\Et[\boldsymbol\varpi_{m,t}'\mathbf{xR}]
+&=\gamma_t\Ct(\boldsymbol\varpi_{m,t}'\mathbf{xR},R_w).
+\end{align*}
+Since $xR_w=\boldsymbol\varpi_{m,t}'\mathbf{xR}$,
+\[
+\Et[xR_w]=\gamma_t\Ct(xR_w,R_w).
+\]
+Combining this with the asset-level equation gives
+\[
+\Et[xR_j]=\frac{\Ct(R_w,xR_j)}{\Ct(xR_w,R_w)}\Et[xR_w],
+\qquad j=1,\ldots,J.
+\]
+Since $xR_w=R_w-R_o$,
+\[
+\Ct(xR_w,R_w)=\Ct(R_w-R_o,R_w)
+=\Vt[R_w]-\Ct(R_w,R_o).
+\]
+To obtain Equation (1.5), we additionally require $\Ct(R_w,R_o)=0$,
+which holds if $R_o$ is risk-free. Since this condition is not imposed
+in the question, Equation (1.5) does not follow in general without an
+additional assumption.
+
+Suppose we assume $\Ct(R_w,R_o)=0$. Then
+\[
+\boxed{\Et[xR_j]=\beta_{j,t}\Et[xR_w],\qquad
+\beta_{j,t}=\frac{\Ct(R_w,xR_j)}{\Ct(xR_w,R_w)}.}
+\]
+
+\clearpage
 \section*{Question 1(c)}
 The maximum Sharpe ratio portfolio solves
 \[

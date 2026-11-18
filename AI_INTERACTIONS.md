@@ -234,3 +234,19 @@
 - **Assistance category:** Student-directed insertion of specified mathematical assumptions and LaTeX formatting.
 - **Grouping:** Separate traceable follow-up; earlier interaction entries unchanged.
 - **After commit:** The commit containing this entry and edited source/PDF records the after-interaction state; locate with `git log`.
+
+
+## 2026-11-17 — Q1(b): OCR handwritten answer into solution
+
+- **Student prompt:** “@TP I wrote my answer for Q1b, OCR it and insert the updated solution into solution.tex”.
+- **Purpose:** Transcribe the student's new Q1(b) answer into the existing solution source between Q1(a) and Q1(c), and compile the PDF.
+- **Before commit:** `8ec40d62dacfb0634e98fe1f01af9f12ef9b2080`. Records the pre-existing student file changes: updated handwritten_notes/Asset Pricing Pset3.pdf, missing root-level Asset Pricing Pset3.pdf, and restored Problem Set 3.pdf. The agent did not move/delete these inputs; their state was present at the start.
+- **Files inspected:** `SKILL.md`; current PDF skill instructions; `handwritten_notes/Asset Pricing Pset3.pdf` overview pages 1–3 and complete Q1(b) pages 9–10 visually at enlarged scale; existing `pset3_solution.tex`; compiled output Q1(b) pages 2–3 visually and beginning of Q1(c) via extracted text; compilation log and Git status.
+- **Assistance:** Transcribed multiplication by Sigma, market clearing, asset-level covariance pricing equation, gray matrix/vector notes and illustrative second-row multiplication, covariance identities, market excess-return aggregation, beta representation, and the student's red additional-assumption qualification about Cov_t(R_w,R_o)=0. Preserved the final beta denominator Cov_t(xR_w,R_w) as written under the stated assumption. Organized notes into headings, standardized subscripts and vector typography, and polished grammar without adding a missing proof. Repeated equivalent equations were consolidated in layout. Inserted into existing `pset3_solution.tex` rather than creating a duplicate solution.tex; other question sections unchanged.
+- **Files directly modified:** `pset3_solution.tex`, `pset3_solution.pdf`, appended this entry to `AI_INTERACTIONS.md`. Original handwritten PDF unchanged by AI.
+- **Errors/omissions/ambiguities:** No unresolved OCR ambiguity required a mathematical decision. The red note questioning the unrestricted implication of Equation (1.5) is the student's existing reasoning and was preserved, not independently generated or silently corrected. This request did not include a full correctness review.
+- **Substantive mathematical/economic/empirical suggestions or decisions:** None. Mathematical content, including the conditional covariance qualification, already existed in the student's handwritten answer. Formatting/exposition choices only.
+- **Validation:** pdflatex compiled successfully to thirteen pages, no overfull-box warnings. Rendered both new Q1(b) pages with PyMuPDF and inspected them for clipping, overlaps, and legibility; section ordering verified.
+- **Assistance category:** OCR/translation and LaTeX formatting.
+- **Grouping:** No subsequent requests grouped; compilation and visual verification are part of this request.
+- **After commit:** The commit containing this appended entry and revised source/PDF records the after-interaction state; locate with `git log`.
