@@ -326,3 +326,19 @@
 - **Assistance category:** Checking mathematical notation.
 - **Grouping:** Separate traceable follow-up; prior entries unchanged.
 - **After commit:** The commit containing this entry records the after-interaction state; locate with `git log`.
+
+
+## 2026-11-17 — Q1(b): synchronize corrected covariance notation
+
+- **Student prompt:** “can you updated the [pset3_solution.tex](pset3_solution.tex) based on what I update for my solution for Q1b?”
+- **Purpose:** Update the typed Q1(b) to match the student's corrected handwritten covariance notation already verified in the preceding interaction.
+- **Before commit:** `da2a36f1b0fc5f3dce29b538bad01844e39c3137` (empty snapshot; working tree clean).
+- **Files inspected:** Q1(b) in `pset3_solution.tex`; latest handwritten pages 9–10 retained from the preceding checks; compiled `pset3_solution.pdf` pages 2–3 visually; build log.
+- **Assistance:** Replaced all five scalar-first baseline/vector covariance expressions in the opening Q1(b) vector equations with Cov_t(vector xR,R_o), matching the student's revision. The row-vector definition used in asset-level products already matched the final handwriting and was retained. Scalar-scalar covariance expressions and the risky-baseline qualification were retained. No additional proof, assumptions, or economic reasoning inserted.
+- **Files directly modified:** `pset3_solution.tex`, `pset3_solution.pdf`, appended this entry to `AI_INTERACTIONS.md`. Other question sections and handwritten source unchanged.
+- **Errors/omissions/ambiguities:** Synchronizes the earlier typed transcription with the now-corrected student notation; no unresolved implementation ambiguity.
+- **Substantive mathematical/economic/empirical suggestions:** None; implements the student's specified and previously checked covariance-order revision.
+- **Validation:** pdflatex succeeded to thirteen pages with no overfull-box warnings; rendered both Q1(b) output pages using PyMuPDF and visually verified dimensions' notation, layout, and legibility.
+- **Assistance category:** Student-directed notation transcription and LaTeX formatting.
+- **Grouping:** Separate traceable update; prior log entries unchanged.
+- **After commit:** The commit containing this entry and synchronized source/PDF records the after-interaction state; locate with `git log`.
