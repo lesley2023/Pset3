@@ -311,3 +311,18 @@
 - **Assistance category:** Checking mathematical notation and dimensions.
 - **Grouping:** No subsequent requests grouped.
 - **After commit:** The commit containing this entry records the after-interaction state; locate with `git log`.
+
+
+## 2026-11-17 — Q1(b): confirm final first-line notation correction
+
+- **Student prompt:** “i updated it, is this work this time?” (follow-up to the Q1(b) covariance notation check).
+- **Purpose:** Verify the last reported scalar-first covariance occurrence was corrected.
+- **Before commit:** `c5c13b72b72a96a9e76cd97af2a5d3fedae25836`, recording the student's revised handwritten PDF.
+- **Files inspected:** `handwritten_notes/Asset Pricing Pset3.pdf` complete page 9 visually at enlarged resolution; prior complete Q1(b) review and unchanged page 10 retained from session context; Git status.
+- **Assistance:** Confirmed the first equation now uses vector-first Cov_t(vector xR,R_o), matching subsequent vector equations. Rechecked the row-vector definition and scalar row-times-column products on the page. Concluded the previously identified covariance orientation issue is resolved in the handwriting. Clarified that this targeted confirmation does not remove the already-discussed risky-baseline qualification and does not synchronize the older LaTeX transcription.
+- **Errors/omissions/ambiguities:** No remaining orientation issue found on the revised page. The assignment beta qualification and nonzero-denominator assumption remain as discussed previously.
+- **Substantive suggestions:** None; verified the student's local correction.
+- **Files directly modified:** Appended this entry to `AI_INTERACTIONS.md` only; no solution or handwritten-source edits.
+- **Assistance category:** Checking mathematical notation.
+- **Grouping:** Separate traceable follow-up; prior entries unchanged.
+- **After commit:** The commit containing this entry records the after-interaction state; locate with `git log`.
